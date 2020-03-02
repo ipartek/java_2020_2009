@@ -1,4 +1,4 @@
-package ejeficio.basico.principiantes;
+package com.ipartek.formacion.bucles;
 
 public class PaisesCoronaVirus {
 
@@ -9,6 +9,9 @@ public class PaisesCoronaVirus {
 		int[] numeroInfectados = { 0, 0, 0, 0 };
 
 		// recorrer paises y preguntar si existe algun caso de corona virus
+		for (int i = 0; i < PAISES.length; i++) {
+
+		}
 
 		// en caso afirmativo, preguntar numero de infectados
 

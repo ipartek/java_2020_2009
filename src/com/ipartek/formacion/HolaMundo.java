@@ -1,4 +1,4 @@
-package uf2404;
+package com.ipartek.formacion;
 
 /*
  * Esto es un comentatio de bloque

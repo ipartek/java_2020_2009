@@ -1,4 +1,4 @@
-package ejeficio.basico.principiantes;
+package com.ipartek.formacion.bucles;
 
 import java.util.Scanner;
 
