@@ -1,4 +1,4 @@
-package ejeficio.basico.principiantes;
+package ejercicio.basico.principiantes;
 
 import java.util.Scanner;
 
