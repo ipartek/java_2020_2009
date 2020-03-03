@@ -52,8 +52,15 @@ public class PaisesCoronaVirus {
 		System.out.println("------------------------------------");
 		for (int i = 0; i < PAISES.length; i++) {
 
-			if (paisesInfectados[i]) {
-				System.out.println(PAISES[i] + " " + numeroInfectados[i]);
+			if (paisesInfectados[i] && numeroInfectados[i] > 10) {
+				System.out.println("*** " + PAISES[i] + " " + numeroInfectados[i]);
+
+			} else if (paisesInfectados[i] && numeroInfectados[i] > 5) {
+				System.out.println("** " + PAISES[i] + " " + numeroInfectados[i]);
+
+			} else if (paisesInfectados[i]) {
+				System.out.println("*" + PAISES[i] + " " + numeroInfectados[i]);
+
 			}
 
 		} // for
