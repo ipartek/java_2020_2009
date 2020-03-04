@@ -2,15 +2,39 @@ package com.ipartek.formacion.clases;
 
 public class Pais {
 
-	// atributos
+	private String nombre;
+	private int infectados;
 
-	nombre
-	numeroInfectados
+	public Pais() {
+		super();
+		this.nombre = "";
+		this.infectados = 0;
+	}
 
-	// cuando se construye un pais su nombre es "" y numero casos 0
+	public String getNombre() {
+		return nombre;
+	}
 
-	// crear getters y setters
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-	// crear toString
+	public int getInfectados() {
+		return infectados;
+	}
+
+	public void setInfectados(int infectados) {
+		this.infectados = infectados;
+	}
+
+	public boolean isInfectado() {
+
+		return this.infectados > 0;
+	}
+
+	@Override
+	public String toString() {
+		return "Pais [nombre=" + nombre + ", infectados=" + infectados + "]";
+	}
 
 }
