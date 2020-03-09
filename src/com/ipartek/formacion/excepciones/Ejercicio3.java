@@ -1,19 +1,36 @@
 package com.ipartek.formacion.excepciones;
 
+import java.util.Scanner;
+
 public class Ejercicio3 {
 
 	public static void main(String[] args) {
-		// TODO capturar Excepciones
 
-		// mostrar la frase por pantalla
+		Scanner sc = new Scanner(System.in);
+		int posicion = 0;
+		String frase = "";
+		char letra = ' ';
 
-		// pedir posicion
+		try {
+			System.out.println("Dime una frase");
+			frase = sc.nextLine();
 
-		letraDeLaPosicion("LA slluevi en SEcvilla es una maraibvilla", 0);
+			System.out.println("Dime un numero de posicion");
+			posicion = Integer.parseInt(sc.nextLine());
 
-		letraDeLaPosicion("LA slluevi en SEcvilla es una maraibvilla", -3);
+			letra = letraDeLaPosicion(frase, posicion);
 
-		letraDeLaPosicion(null, 0);
+			System.out.println("La letra es " + letra);
+
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println("la poscion no es correcta, por favor escribe desde el 0 al " + (frase.length() - 1));
+
+		} catch (Exception e) {
+			System.out.println("Eso no es un numero");
+
+		} finally {
+			sc.close();
+		}
 
 	}
 
