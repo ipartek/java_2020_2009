@@ -14,8 +14,18 @@ public class EjemploDeUso {
 
 		System.out.println(" 3 + 3 = " + Utilidades.suma(3, 3));
 
-		System.out.println("La letra del dni 11111111 es " + Utilidades.calcularLetraDni("11111111"));
-		System.out.println("La letra del dni 11111111 es " + Utilidades.calcularLetraDni(11111111));
+		try {
+			System.out.println("La letra del dni 11111111 es " + Utilidades.calcularLetraDni("11111111"));
+			System.out.println("La letra del dni 11111111 es " + Utilidades.calcularLetraDni(11111111));
+			System.out.println("La letra del dni 1234 es " + Utilidades.calcularLetraDni(1234));
+
+			System.out.println("La letra del dni 11111111 es " + Utilidades.calcularLetraDni(null));
+			System.out.println("La letra del dni 11111111 es " + Utilidades.calcularLetraDni("mi dni"));
+			System.out.println("La letra del dni 11111111 es " + Utilidades.calcularLetraDni("123"));
+		} catch (Exception e) {
+
+			System.out.println(e.getMessage());
+		}
 
 	}
 
