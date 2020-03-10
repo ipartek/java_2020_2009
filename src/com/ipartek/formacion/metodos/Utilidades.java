@@ -70,9 +70,11 @@ public class Utilidades {
 	}
 
 	/**
+	 * Ordena de menor a mayor un array de enteros
 	 * 
-	 * @param aDesordenado
-	 * @return
+	 * @see https://www.youtube.com/watch?v=lyZQPjUT5B4&t=65s
+	 * @param aDesordenado int[] array desordenado
+	 * @return int[] array ordenado de menor a mayor
 	 */
 	static int[] bubbleShort(int[] aDesordenado) {
 
