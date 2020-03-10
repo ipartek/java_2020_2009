@@ -78,9 +78,42 @@ public class Utilidades {
 	 */
 	static int[] bubbleShort(int[] aDesordenado) {
 
-		int[] aOrdenado = new int[aDesordenado.length];
+		int[] aOrdenado = aDesordenado;
+		int aux = 0;
 
-		// TODO ordenar el array de enteros con bubble short
+		for (int i = 0; i < aOrdenado.length; i++) {
+			for (int j = 0; j < (aOrdenado.length - 1); j++) {
+
+				if (aOrdenado[j] > aOrdenado[j + 1]) {
+
+					aux = aOrdenado[j];
+					aOrdenado[j] = aOrdenado[j + 1];
+					aOrdenado[j + 1] = aux;
+				}
+
+			}
+
+		}
+
+		return aOrdenado;
+	}
+
+	static int[] bubbleShortJoseba(int[] aDesordenado) {
+
+		int[] aOrdenado = aDesordenado;
+		int aux = 0;
+
+		for (int i = 0; i < (aOrdenado.length - 1); i++) {
+
+			if (aOrdenado[i] > aOrdenado[i + 1]) {
+
+				aux = aOrdenado[i];
+				aOrdenado[i] = aOrdenado[i + 1];
+				aOrdenado[i + 1] = aux;
+				i = 0;
+			}
+
+		}
 
 		return aOrdenado;
 	}

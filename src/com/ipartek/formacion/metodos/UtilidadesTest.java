@@ -87,7 +87,7 @@ public class UtilidadesTest {
 	@Test
 	public void bubbleShort() {
 
-		int[] aDesordenado = { 0, 3, 1, 8 };
+		int[] aDesordenado = { 8, 3, 1, 0 };
 
 		int[] aOrdenado = Utilidades.bubbleShort(aDesordenado);
 
@@ -95,6 +95,13 @@ public class UtilidadesTest {
 		assertEquals(1, aOrdenado[1]);
 		assertEquals(3, aOrdenado[2]);
 		assertEquals(8, aOrdenado[3]);
+
+		int[] aOrdenado2 = Utilidades.bubbleShortJoseba(aDesordenado);
+
+		assertEquals(0, aOrdenado2[0]);
+		assertEquals(1, aOrdenado2[1]);
+		assertEquals(3, aOrdenado2[2]);
+		assertEquals(8, aOrdenado2[3]);
 
 	}
 
