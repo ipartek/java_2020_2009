@@ -21,9 +21,26 @@ public class Utilidades {
 	 * @param nombre
 	 * @param idioma
 	 */
-	static void saludar(String nombre, String idioma) {
-		System.out.println("Hola  " + nombre);
-		// si es void el retorno, no hay return
+	static String saludar(String nombre, String idioma) throws Exception {
+		String saludo = "";
+		switch (idioma) {
+		case IDIOMA_CASTELLANO:
+			saludo = "Hola " + nombre;
+			break;
+		case IDIOMA_EUSKERA:
+			saludo = "Kaixo " + nombre;
+			break;
+		case IDIOMA_INGLES:
+			saludo = "Hello " + nombre;
+			break;
+
+		default:
+			throw new Exception("Idioma no permitido " + idioma);
+		// break;
+		}
+
+		return saludo;
+
 	}
 
 	static int suma(int a, int b) {
