@@ -84,4 +84,18 @@ public class UtilidadesTest {
 		Utilidades.calcularLetraDni("1234567a");
 	}
 
+	@Test
+	public void bubbleShort() {
+
+		int[] aDesordenado = { 0, 3, 1, 8 };
+
+		int[] aOrdenado = Utilidades.bubbleShort(aDesordenado);
+
+		assertEquals(0, aOrdenado[0]);
+		assertEquals(1, aOrdenado[1]);
+		assertEquals(3, aOrdenado[2]);
+		assertEquals(8, aOrdenado[3]);
+
+	}
+
 }

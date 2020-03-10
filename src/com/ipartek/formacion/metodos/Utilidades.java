@@ -69,4 +69,18 @@ public class Utilidades {
 		return letra;
 	}
 
+	/**
+	 * 
+	 * @param aDesordenado
+	 * @return
+	 */
+	static int[] bubbleShort(int[] aDesordenado) {
+
+		int[] aOrdenado = new int[aDesordenado.length];
+
+		// TODO ordenar el array de enteros con bubble short
+
+		return aOrdenado;
+	}
+
 }
