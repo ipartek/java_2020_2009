@@ -16,9 +16,11 @@ public class Vueltas {
 	}
 
 	public static float calcularVueltas(float importe, float entregado) throws Exception {
-		// TODO vuestro marron
 
-		return 0;
+		if (entregado < importe) {
+			throw new Exception("La cantidad entregada es insuficiente");
+		}
+		return entregado - importe;
 	}
 
 }
