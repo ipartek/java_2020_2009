@@ -16,6 +16,11 @@ public class VueltasTest {
 	@Test
 	public void testCalcularVueltasOptimas() throws Exception {
 
+		/*
+		 * boolean condicion = true; String resultado = (!condicion) ?
+		 * "Esto es verdadero" : "si no se cumple"; System.out.println(resultado);
+		 */
+
 		int[] vueltas = Vueltas.calcularVueltasOptimas(100f, 100f);
 		int[] vueltasCorrectas = new int[Vueltas.BILLETES_MONEDAS.length];
 		assertArrayEquals(vueltas, vueltasCorrectas);

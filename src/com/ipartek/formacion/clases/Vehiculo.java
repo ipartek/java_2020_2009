@@ -56,8 +56,17 @@ public class Vehiculo {
 		return numeroRuedas;
 	}
 
+	/**
+	 * Si el numero de ruedas < 0, pondremos un 0
+	 * 
+	 * @param numeroRuedas
+	 */
 	public void setNumeroRuedas(int numeroRuedas) {
-		this.numeroRuedas = numeroRuedas;
+		if (numeroRuedas > 0) {
+			this.numeroRuedas = numeroRuedas;
+		} else {
+			this.numeroRuedas = 0;
+		}
 	}
 
 	public int getNumeroPuertas() {
