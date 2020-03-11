@@ -1,4 +1,6 @@
-package com.ipartek.formacion.clases;
+package com.ipartek.formacion.clases.pruebas;
+
+import com.ipartek.formacion.clases.Persona;
 
 public class PersonaPruebas {
 
