@@ -13,7 +13,7 @@ public class ProfesorALumnos {
 		profesor.setMateria("Fisica cuantica");
 
 		// crear un array de Alumnos
-		Alumno[] alumnos = new Alumno[3];
+		Alumno[] arrayAlumnos = new Alumno[3];
 
 		Alumno jaimito = new Alumno();
 		jaimito.setNombre("Jaimito");
@@ -30,19 +30,25 @@ public class ProfesorALumnos {
 		hodei.setGenero(Persona.GENERO_INDEFINIDO);
 		hodei.setNota(7);
 
-		alumnos[0] = jaimito;
-		alumnos[1] = jaimita;
-		alumnos[2] = hodei;
+		arrayAlumnos[0] = jaimito;
+		arrayAlumnos[1] = jaimita;
+		arrayAlumnos[2] = hodei;
 
 		System.out.println("El profesor " + profesor.getNombre() + " imparte la materia de: " + profesor.getMateria());
 		System.out.println("Sus alumnos son:");
-		for (Alumno alumno : alumnos) {
+		for (Alumno alumno : arrayAlumnos) {
 			System.out.println(alumno.getNombre() + " nota: " + alumno.getNota());
 			// System.out.println(alumno.toString());
 		}
 
 		// TODO mostrar Alumno con Nota maxima
 		// TODO mostrar media de las notas
+		float totalNotas = 0;
+		for (Alumno alumno : arrayAlumnos) {
+			totalNotas += alumno.getNota();
+		}
+
+		System.out.println("La nota media es: " + (totalNotas / arrayAlumnos.length));
 
 	}
 
