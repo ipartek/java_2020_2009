@@ -18,7 +18,7 @@ public class ProfesorALumnos {
 		Alumno jaimito = new Alumno();
 		jaimito.setNombre("Jaimito");
 		jaimito.setGenero(Persona.GENERO_MASCULINO);
-		jaimito.setNota(Alumno.NOTA_MAX);
+		jaimito.setNota(4);
 
 		Alumno jaimita = new Alumno();
 		jaimita.setNombre("Jaimita");
@@ -36,19 +36,31 @@ public class ProfesorALumnos {
 
 		System.out.println("El profesor " + profesor.getNombre() + " imparte la materia de: " + profesor.getMateria());
 		System.out.println("Sus alumnos son:");
+
 		for (Alumno alumno : arrayAlumnos) {
 			System.out.println(alumno.getNombre() + " nota: " + alumno.getNota());
 			// System.out.println(alumno.toString());
 		}
 
-		// TODO mostrar Alumno con Nota maxima
-		// TODO mostrar media de las notas
+		// conseguir nota media
+		// buscar Alumno con mejor nota
+		Alumno alumnoNotaMaxima = new Alumno();
+		int notaMaxima = -1;
 		float totalNotas = 0;
-		for (Alumno alumno : arrayAlumnos) {
+		for (int i = 0; i < arrayAlumnos.length; i++) {
+			Alumno alumno = arrayAlumnos[i];
 			totalNotas += alumno.getNota();
+
+			if (notaMaxima < alumno.getNota()) {
+				notaMaxima = alumno.getNota();
+				alumnoNotaMaxima = alumno;
+			}
+
 		}
 
-		System.out.println("La nota media es: " + (totalNotas / arrayAlumnos.length));
+		System.out.println("La nota Total es: " + totalNotas);
+		System.out.println("La nota Media es: " + (totalNotas / arrayAlumnos.length));
+		System.out.println("Alumno con mejor nota: " + alumnoNotaMaxima);
 
 	}
 
