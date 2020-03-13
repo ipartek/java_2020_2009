@@ -1,8 +1,14 @@
 package com.ipartek.formacion.clases;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+
 public class Pais {
 
+	@NotBlank
 	private String nombre;
+
+	@Min(0)
 	private int infectados;
 
 	public Pais() {

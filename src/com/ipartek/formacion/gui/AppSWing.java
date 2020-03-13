@@ -59,7 +59,7 @@ public class AppSWing {
 
 		String week[] = { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" };
 
-		JList<String> list = new JList<String>(week);
+		JList list = new JList(week);
 		frame.getContentPane().add(list, BorderLayout.WEST);
 
 		Panel panel = new Panel();
