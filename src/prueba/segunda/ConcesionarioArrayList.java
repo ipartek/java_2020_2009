@@ -7,6 +7,8 @@ public class ConcesionarioArrayList {
 
 	public static void main(String[] args) {
 
+		System.out.println(ConcesionarioArrayList.class.getName());
+
 		// variables para recoger valores tecleados por consola
 		String matricula = "";
 		String marca = "";
