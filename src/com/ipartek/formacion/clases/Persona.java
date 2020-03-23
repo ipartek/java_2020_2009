@@ -11,6 +11,11 @@ public class Persona {
 	// clase, para poder manipular los atributos hay que crear metodos 'publicos'
 	// denominados getters y setters. Ha esto se le llama 'encapsulacion'
 	private String nombre;
+	private String empresa;
+	private String fechaNacimiento;
+	private String telefono;
+	private String email;
+	private String dni;
 	private int altura; // cm
 	private int edad;
 	private char genero;
@@ -19,6 +24,11 @@ public class Persona {
 	public Persona() {
 		super();
 		this.nombre = "anonimo";
+		this.empresa = "";
+		this.fechaNacimiento = "";
+		this.telefono = "";
+		this.email = "";
+		this.dni = "";
 		this.altura = 0;
 		this.edad = 0;
 		this.genero = GENERO_INDEFINIDO;
@@ -71,10 +81,51 @@ public class Persona {
 		this.raza = raza;
 	}
 
+	public String getEmpresa() {
+		return empresa;
+	}
+
+	public void setEmpresa(String empresa) {
+		this.empresa = empresa;
+	}
+
+	public String getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+	public void setFechaNacimiento(String fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+
 	@Override
 	public String toString() {
-		return "Persona [nombre=" + nombre + ", altura=" + altura + ", edad=" + edad + ", genero=" + genero + ", raza="
-				+ raza + "]";
+		return "Persona [nombre=" + nombre + ", empresa=" + empresa + ", fechaNacimiento=" + fechaNacimiento
+				+ ", telefono=" + telefono + ", email=" + email + ", dni=" + dni + ", altura=" + altura + ", edad="
+				+ edad + ", genero=" + genero + ", raza=" + raza + "]";
 	}
 
 }
