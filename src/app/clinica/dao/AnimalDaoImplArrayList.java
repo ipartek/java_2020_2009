@@ -47,26 +47,75 @@ public class AnimalDaoImplArrayList implements DaoAnimal {
 
 	@Override
 	public Animal getById(int id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		Animal resul = null;
+
+		for (Animal a : lista) {
+			if (id == a.getId()) {
+				resul = a;
+				break;
+			}
+		}
+
+		if (resul == null) {
+			throw new Exception("No se encontro animal con id " + id);
+		}
+		return resul;
 	}
 
 	@Override
 	public Animal delete(int id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		Animal resul = null;
+
+		for (int i = 0; i < lista.size(); i++) {
+			Animal a = lista.get(i);
+			if (id == a.getId()) {
+				resul = a;
+				lista.remove(i);
+				break;
+			}
+		}
+
+		if (resul == null) {
+			throw new Exception("No se encontro animal con id " + id);
+		}
+		return resul;
 	}
 
 	@Override
 	public Animal update(Animal animal) throws Exception {
-		// TODO Auto-generated method stub
+		Animal resul = null;
+		int id = animal.getId();
+
+		for (int i = 0; i < lista.size(); i++) {
+			Animal a = lista.get(i);
+			if (id == a.getId()) {
+				resul = a;
+				lista.remove(i);
+				lista.add(i, animal);
+				break;
+			}
+		}
+
+		if (resul == null) {
+			throw new Exception("No se encontro animal con id " + id);
+		}
 		return null;
 	}
 
 	@Override
 	public Animal create(Animal animal) throws Exception {
-		// TODO acordaros de incrementar contadorIds
-		return null;
+
+		if (animal != null) {
+
+			animal.setId(contadorIds);
+			lista.add(animal);
+			contadorIds++;
+
+		} else {
+			throw new Exception("No se puede crear NULL");
+		}
+
+		return animal;
 	}
 
 }

@@ -14,7 +14,7 @@ public class AppMain {
 	// static private ArrayList<Animal> animales;
 	static private AnimalDaoImplArrayList dao;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 
 		sc = new Scanner(System.in);
 		dao = AnimalDaoImplArrayList.getInstance(); // no se puede hacer new, patron singleton
@@ -67,11 +67,12 @@ public class AppMain {
 
 	}
 
-	private static void crearAnimales() {
+	private static void crearAnimales() throws Exception {
 
 		System.out.println("Creamos unos animales de prueba.......");
 
 		Animal perro = new Animal();
+		perro.setNombre("Scobby Doo");
 		perro.setEdad(1);
 		perro.setEspecie("can");
 		perro.setId(1);
@@ -86,9 +87,7 @@ public class AppMain {
 
 		perro.getRevisiones().add(r1);
 
-		// TODO llamar al dao
-		// dao.create(animal)
-		// animales.add(perro);
+		dao.create(perro);
 
 	}
 
@@ -111,42 +110,50 @@ public class AppMain {
 
 	/**
 	 * Método que muestra una mascota buscando por su id
+	 * 
+	 * @throws Exception
 	 */
-	private static Animal buscarPorId() {
+	private static Animal buscarPorId() throws Exception {
 		int id = 0;
+		Animal animalEncontrado = null;
 
 		System.out.println("Introduzca id a buscar");
 		id = Integer.parseInt(sc.nextLine());
 
-		// TODO llamar al DAO, cuidadin con la exception
-		// Animal animalEncontrado = dao.getById(id);
+		// llamar al DAO, cuidadin con la exception
+		animalEncontrado = dao.getById(id);
 
-		return null;
+		return animalEncontrado;
 	}
 
 	/**
 	 * Método que añade un registro nuevo de un ingreso de una mascota
 	 */
 	private static void nuevaRevision() {
+		try {
+			Animal animal = buscarPorId();
 
-		Animal animal = buscarPorId();
+			// Crear nueva revision
+			Revision revision = new Revision();
+			System.out.println("Introduzca diagnostico");
+			revision.setDiagnostico(sc.nextLine());
+			System.out.println("Introduzca id Veterinario");
+			revision.setIdDoctor(sc.nextLine());
+			System.out.println("Introduzca motivo");
+			revision.setMotivo(sc.nextLine());
+			System.out.println("Introduzca tratamiento");
+			revision.setTratamiento(sc.nextLine());
 
-		// Crear nueva revision
-		Revision revision = new Revision();
-		System.out.println("Introduzca diagnostico");
-		revision.setDiagnostico(sc.nextLine());
-		System.out.println("Introduzca id Veterinario");
-		revision.setIdDoctor(sc.nextLine());
-		System.out.println("Introduzca motivo");
-		revision.setMotivo(sc.nextLine());
-		System.out.println("Introduzca tratamiento");
-		revision.setTratamiento(sc.nextLine());
+			// añadir revision al animal, lo hacemos en una sola linea, pero son dos
+			// operaciones
+			// 1. Conseguimos el ArrayList de las revisiones => animal.getRevisiones()
+			// 2. Añadimos una nueva revision en el ArrayList => add(revision)
+			animal.getRevisiones().add(revision);
 
-		// añadir revision al animal, lo hacemos en una sola linea, pero son dos
-		// operaciones
-		// 1. Conseguimos el ArrayList de las revisiones => animal.getRevisiones()
-		// 2. Añadimos una nueva revision en el ArrayList => add(revision)
-		animal.getRevisiones().add(revision);
+		} catch (Exception e) {
+
+			System.out.println("Lo sentimos no hemos encontrado al Animal");
+		}
 
 	}
 
@@ -154,11 +161,22 @@ public class AppMain {
 	 * Método que muestra el historial de ingresos de una mascota
 	 */
 	private static void verHistorialMascota() {
-		String nombre = "";
-		System.out.println("Intoduzca nombre de la mascota para ver su id");
-		nombre = sc.nextLine();
 
-		// TODO recuperar Animal por id con el dao y hacer getRevisiones();
+		try {
+			Animal animal = buscarPorId();
+			System.out.println("--------------------------------------------");
+			System.out.println(animal.getId() + "  " + animal.getNombre());
+			System.out.println("------------  Historial ------------------- ");
+
+			ArrayList<Revision> historial = animal.getRevisiones();
+			for (Revision revision : historial) {
+				System.out.println(revision);
+			}
+
+		} catch (Exception e) {
+			System.out.println("Lo sentimos no hemos encontrado al Animal");
+		}
+
 	}
 
 	/**
@@ -180,9 +198,18 @@ public class AppMain {
 		// animales.add(animal);
 		// ids++;
 
-		// TODO crear Animal y mostrar por pantalla para ver el id nuevo, cuidadin con
-		// la Excepcion
-		// dao.create(animal);
+		// crear Animal y mostrar por pantalla para ver el id nuevo, cuidadin con la
+		// Excepcion
+		try {
+			Animal creado = dao.create(animal);
+			System.out.println("Animal Creado con Exito:");
+			System.out.println(creado);
+
+		} catch (Exception e) {
+
+			System.out.println(e.getMessage());
+
+		}
 
 	}
 

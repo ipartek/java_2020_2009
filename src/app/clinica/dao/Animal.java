@@ -4,21 +4,22 @@ import java.util.ArrayList;
 
 public class Animal {
 
+	private int id;
 	private String nombre;
 	private String especie;
 	private String raza;
 	private int edad;
 	private ArrayList<Revision> revisiones;
-	private int id;
 
 	public Animal() {
 		super();
+		this.id = 0;
 		this.nombre = "";
 		this.especie = "";
 		this.raza = "";
 		this.edad = 0;
 		this.revisiones = new ArrayList<Revision>();
-		this.id = 0;
+
 	}
 
 	public String getNombre() {
@@ -71,8 +72,8 @@ public class Animal {
 
 	@Override
 	public String toString() {
-		return "Animal [nombre=" + nombre + ", especie=" + especie + ", raza=" + raza + ", edad=" + edad
-				+ ", revisiones=" + revisiones + ", id=" + id + "]";
+		return "Animal [id=" + id + ", nombre=" + nombre + ", especie=" + especie + ", raza=" + raza + ", edad=" + edad
+				+ ", revisiones=" + revisiones + "]";
 	}
 
 }
